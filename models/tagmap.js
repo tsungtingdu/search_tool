@@ -1,8 +1,8 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Tagmap = sequelize.define('Tagmap', {
-    commentId: DataTypes.INTEGER,
-    tagId: DataTypes.INTEGER
+    CommentId: DataTypes.INTEGER,
+    TagId: DataTypes.INTEGER
   }, {});
   Tagmap.associate = function (models) {
     // associations can be defined here
