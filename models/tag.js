@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     Tag.belongsToMany(models.Comment, {
       as: 'tags',
-      throught: {
+      through: {
         model: models.Tagmap, unique: false
       },
       foreignKey: 'TagId'
