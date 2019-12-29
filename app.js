@@ -27,3 +27,6 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.listen(port, () => {
   console.log(`Listening on port ${port} ...`)
 })
+
+// routes
+require('./routes/index')(app)
