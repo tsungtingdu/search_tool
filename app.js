@@ -12,7 +12,7 @@ app.engine('.hbs', handlebars({
 }))
 
 app.set('view engine', '.hbs')
-app, use(express.static('public'))
+app.use(express.static('public'))
 
 // listening on port
 app.listen(port, () => {
