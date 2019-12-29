@@ -1,8 +1,13 @@
 const express = require('express')
-const handlebars = require('express-handlebars')
 const app = express()
-const port = 3000
+const bodyParser = require('body-parser')
+const handlebars = require('express-handlebars')
+const methodOverride = require('method-override')
+const port = process.env.PORT || 3000
 
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
 // setup view engine
 app.engine('.hbs', handlebars({
   extname: '.hbs',
@@ -12,7 +17,11 @@ app.engine('.hbs', handlebars({
 }))
 
 app.set('view engine', '.hbs')
+
+// setup app
 app.use(express.static('public'))
+app.use(methodOverride('_method'))
+app.use(bodyParser.urlencoded({ extended: true }))
 
 // listening on port
 app.listen(port, () => {
