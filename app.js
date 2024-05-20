@@ -3,11 +3,16 @@ const app = express()
 const bodyParser = require('body-parser')
 const handlebars = require('express-handlebars')
 const methodOverride = require('method-override')
+const swaggerDocument = require('./swagger/swaggerDoc')
 const port = process.env.PORT || 3000
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
+
+// API Doc
+swaggerDocument(app)
+
 // setup view engine
 app.engine('.hbs', handlebars({
   extname: '.hbs',
